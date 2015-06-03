@@ -57,8 +57,10 @@ class RecordsController < ApplicationController
       params_for_update.delete :owner_id
     end
 
+    byebug
+
     respond_to do |format|
-      if @record.update(record_params)
+      if @record.update(params_for_update)
         format.html { redirect_to @record, notice: 'Record was successfully updated.' }
         format.json { render :show, status: :ok, location: @record }
       else
